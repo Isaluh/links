@@ -1,0 +1,170 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-color: #ffffff;
+    --bg: url(./assets/bg-mobile.jpg);
+    --borda: rgba(255, 255, 255, 0.5);
+    --bg-btn: rgba(255, 255, 255, 0.10);
+    --bg-btn-hover: rgba(255, 255, 255, 0.05);
+    --bg-redes-hover: rgba(255, 255, 255, 0.2);
+    --bg-mode: url(./assets/moon.svg);
+}
+
+.light{
+    --text-color: black;
+    --bg: url(./assets/bg-mobile-light.jpg);
+    --borda: rgba(0, 0, 0, 0.5);
+    --bg-btn: rgba(0, 0, 0, 0.05);
+    --bg-btn-hover: rgba(0, 0, 0, 0.02);
+    --bg-redes-hover: rgba(0, 0, 0, 0.1);
+    --bg-mode: url(./assets/sun.svg);
+}
+
+body *{
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+}
+body{
+    background: var(--bg) no-repeat top center/cover;
+}
+
+nav{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile{
+    text-align: center;
+}
+#profile img{
+    width: 120px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    background: rgb(113, 106, 141);
+}
+#profile p{
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+#switch{
+    margin: 16px auto 0;
+}
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--bg-mode) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+
+    animation: slide-out .4s forwards;
+}
+#switch button:hover{
+    outline: 8px solid var(--bg-redes-hover);
+}
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    margin-top: 5px;
+    background: var(--bg-btn);
+    border: 1px solid var(--borda);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+}
+.light #switch button{
+    animation: slide-in .4s forwards;
+    /* margin-left: 34px; */
+}
+
+ul{
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 24px 0 0;
+}
+ul li a{    
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-weight: 500;
+    line-height: 24px;
+
+    border-radius: 8px;
+    border: 1px solid var(--borda);
+    background: var(--bg-btn);
+    -webkit-backdrop-filter: blur(4px);
+
+    padding: 16px 24px;
+    width: 210px;
+
+    transition: background 0.2s;
+}
+ul li a:hover{
+    background: var(--bg-btn-hover);
+    border: 1.5px solid var(--text-color);
+}
+
+#redes{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px 0;
+    font-size: 24px;
+}
+#redes a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+#redes a:hover{
+    background: var(--bg-redes-hover);
+}
+
+@keyframes slide-in{
+    from{
+        margin-left: 0;
+    }
+    to{
+        margin-left: 34px;
+    }
+}
+
+@keyframes slide-out {
+    from {
+        margin-left: 34px;
+    }
+
+    to {
+        margin-left: 0;
+    }
+}
+
+@media (min-width) {
+    :root{
+        --bg-pc: url(./assets/bg-desktop.jpg);
+    }
+    .light{
+        --bg-pc: url(./assets/bg-desktop-light.jpg);
+    }
+}
